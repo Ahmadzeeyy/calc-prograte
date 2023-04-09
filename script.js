@@ -124,7 +124,7 @@ decimal.addEventListener('click', (event) => {
 // delete 
 const deleteBtn = document.querySelector('.delete');
 const del = () => {
-    if ( currentNumber.length <= 1 && stringHistory.length <= 1 )  {
+    if (currentNumber.length <= 1) {
         currentNumber = "0";
         stringHistory = "";
     } else {
