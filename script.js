@@ -20,7 +20,7 @@ const history = (history) => {
     if (stringHistory === '' ){
         stringHistory ='' ;
         historyClass.innerHTML = '';
-    }stringHistory += history;
+    } stringHistory = history;
     historyClass.innerHTML = stringHistory;
     
 };
@@ -35,7 +35,7 @@ numbers.forEach((number)=>{
     number.addEventListener("click", (event)=>{
         inputNumber(event.target.value);
         updateScreen(currentNumber);
-        history(event.target.value);
+        history(currentNumber);
     });
 });
 
@@ -59,7 +59,7 @@ const operators = document.querySelectorAll('.operator');
 operators.forEach((operator) =>{
     operator.addEventListener('click',(event) =>{
         inputOperator(event.target.value);
-        history(event.target.value);
+        history(calculationOperator);
     })
 })
 
@@ -110,7 +110,7 @@ const clearBtn = document.querySelector('.all-clear');
 clearBtn.addEventListener('click', () => {
     clearAll();
     updateScreen(currentNumber);
-    history(stringHistory)
+    history(currentNumber);
 });
 const inputDecimal = (dot)=>{
     currentNumber += dot; 
@@ -129,7 +129,6 @@ const del = () => {
         stringHistory = "";
     } else {
         currentNumber = currentNumber.slice(0, currentNumber.length - 1);
-        stringHistory = stringHistory.slice(0, stringHistory.length - 1);
     };
     
 } 
@@ -138,7 +137,7 @@ const del = () => {
 deleteBtn.addEventListener('click', ()=>{
     console.log(stringHistory);
     del();
-    history(stringHistory);
+    history(currentNumber);
     updateScreen(currentNumber);
 });
 
